@@ -2,6 +2,7 @@
 import { ReactNode } from 'react';
 import { Card as ShadcnCard, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { Heart } from "lucide-react";
 
 interface CardProps {
   className?: string;
@@ -62,6 +63,15 @@ const ListingCard = ({
         <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-medium px-2 py-1 rounded-full">
           {category}
         </div>
+        <button 
+          className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full hover:bg-white/100 transition-all"
+          onClick={(e) => {
+            e.stopPropagation();
+            console.log("Added to wishlist:", title);
+          }}
+        >
+          <Heart className="h-4 w-4 text-gray-600 hover:text-rose-500 transition-colors" />
+        </button>
       </div>
       <CardHeader className="p-4 pb-2" onClick={onClick}>
         <div className="flex justify-between items-start">
