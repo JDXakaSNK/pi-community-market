@@ -60,11 +60,8 @@ const ListingCard = ({
           alt={title}
           className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-medium px-2 py-1 rounded-full">
-          {category}
-        </div>
         <button 
-          className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full hover:bg-white/100 transition-all"
+          className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full hover:bg-white/100 transition-all"
           onClick={(e) => {
             e.stopPropagation();
             console.log("Added to wishlist:", title);
@@ -72,6 +69,9 @@ const ListingCard = ({
         >
           <Heart className="h-4 w-4 text-gray-600 hover:text-rose-500 transition-colors" />
         </button>
+        <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-medium px-2 py-1 rounded-full">
+          {category}
+        </div>
       </div>
       <CardHeader className="p-4 pb-2" onClick={onClick}>
         <div className="flex justify-between items-start">
