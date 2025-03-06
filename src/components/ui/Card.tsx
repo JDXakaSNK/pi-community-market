@@ -45,6 +45,10 @@ const ListingCard = ({
   glassEffect = false,
   onClick
 }: ListingCardProps) => {
+  // Calculate Euro price (assume 1 Pi = 3.5 Euro for this example)
+  const piValue = parseFloat(price);
+  const euroValue = (piValue * 3.5).toFixed(2);
+
   return (
     <Card 
       className={cn(
@@ -76,7 +80,10 @@ const ListingCard = ({
       <CardHeader className="p-4 pb-2" onClick={onClick}>
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg font-medium line-clamp-1">{title}</CardTitle>
-          <div className="text-base font-semibold text-primary">{price} π</div>
+          <div className="flex flex-col items-end">
+            <div className="text-base font-semibold text-primary">{price} π</div>
+            <div className="text-xs text-muted-foreground">€{euroValue}</div>
+          </div>
         </div>
         <CardDescription className="text-sm text-muted-foreground">
           {location}
